@@ -1,0 +1,21 @@
+
+ <section class="content-header">
+  <h1>
+  </h1>
+</section>
+
+<section class="content" *ngIf= "pokemons != null ">
+  <div class="row" >
+      <div *ngFor="let pokemon of pokemons.results" class="col-sm-6 col-xs-12">
+        <mt-pokemon [pokemon]="pokemon"></mt-pokemon>
+      </div>
+  </div>
+  <paginacao
+    [qtdPorPagina]="qtdPorPagina"
+    [totalRegistros]="pokemons.count"
+    [qtdAdjacentes]="3"
+    (onPaginate)="paginar($event)">
+  </paginacao>
+  <app-loading [loading]="loading"></app-loading>
+</section>
+
